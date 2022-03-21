@@ -1,4 +1,5 @@
 # AdeonaRPDS
 
 Ceci est le projet de Interface graphique "Adeona" de Damien Dallon,Sébastien Rocca,Pierre De Saxcé,Raphaël Rey
-Ceci est un test
+Ceci est un test (Damien)
+Ceci est un deuxième test (Damien)
