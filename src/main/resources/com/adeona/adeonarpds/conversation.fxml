@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
+   <children>
+      <TextArea fx:id="chatbox" prefHeight="188.0" prefWidth="600.0" text="Hello" />
+      <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" text="Hello" />
+   </children>
+</VBox>
