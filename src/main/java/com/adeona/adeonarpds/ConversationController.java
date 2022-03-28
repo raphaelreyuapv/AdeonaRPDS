@@ -20,4 +20,8 @@ public class ConversationController {
     public void setUser_home(String user_home){
         this.user_home = user_home;
     }
+
+    public void loadhistory(String hist){
+        chatbox.setText(hist);
+    }
 }
