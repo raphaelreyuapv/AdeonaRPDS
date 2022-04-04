@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="50.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.SearchItem">
+   <children>
+      <HBox prefHeight="50.0" prefWidth="400.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="150.0" pickOnBounds="true" preserveRatio="true" />
+            <VBox prefHeight="50.0" prefWidth="124.0">
+               <children>
+                  <Label text="Title">
+                     <font>
+                        <Font size="18.0" />
+                     </font></Label>
+                  <Label text="Location" />
+               </children>
+            </VBox>
+            <Label text="Host" />
+         </children></HBox>
+   </children>
+</AnchorPane>
