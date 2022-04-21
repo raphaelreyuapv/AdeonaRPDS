@@ -3,7 +3,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="645.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.CompositionController">
+<AnchorPane prefHeight="645.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.CompositionController">
    <children>
       <TextField fx:id="titre" layoutX="89.0" layoutY="21.0" />
       <TextField fx:id="lieu" layoutX="89.0" layoutY="55.0" />
@@ -29,5 +29,6 @@
       <TextField fx:id="url_image" layoutX="323.0" layoutY="106.0" />
       <Label layoutX="253.0" layoutY="110.0" text="URL image" />
       <TextArea fx:id="desc" layoutX="98.0" layoutY="91.0" prefHeight="124.0" prefWidth="150.0" />
+      <Button fx:id="publish" layoutX="75.0" layoutY="594.0" mnemonicParsing="false" onAction="#doReservation" text="Publier" />
    </children>
 </AnchorPane>
