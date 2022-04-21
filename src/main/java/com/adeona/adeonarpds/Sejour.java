@@ -61,4 +61,95 @@ public class Sejour {
         this.date_debut = date_debut;
         this.date_fin = date_fin;
     }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getLieu() {
+        return lieu;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public int getId_host() {
+        return id_host;
+    }
+
+    public String getURL_image() {
+        return URL_image;
+    }
+
+    public int getNote() {
+        return note;
+    }
+
+    public int getNombre_chambre() {
+        return nombre_chambre;
+    }
+
+    public int getType_logement() {
+        return type_logement;
+    }
+
+    public int getCapacity() {
+        return capacity;
+    }
+
+    public int getPension() {
+        return pension;
+    }
+
+    public boolean isCuisine() {
+        return cuisine;
+    }
+
+    public boolean isInternet() {
+        return internet;
+    }
+
+    public boolean isTelevision() {
+        return television;
+    }
+
+    public boolean isLave_linge() {
+        return lave_linge;
+    }
+
+    public Date getDate_debut() {
+        return date_debut;
+    }
+
+    public Date getDate_fin() {
+        return date_fin;
+    }
+
+    @Override
+    public String toString() {
+        return "Sejour{" +
+                "id=" + id +
+                ", titre='" + titre + '\'' +
+                ", lieu='" + lieu + '\'' +
+                ", description='" + description + '\'' +
+                ", id_host=" + id_host +
+                ", URL_image='" + URL_image + '\'' +
+                ", note=" + note +
+                ", nombre_chambre=" + nombre_chambre +
+                ", type_logement=" + type_logement +
+                ", capacity=" + capacity +
+                ", pension=" + pension +
+                ", cuisine=" + cuisine +
+                ", internet=" + internet +
+                ", television=" + television +
+                ", lave_linge=" + lave_linge +
+                ", date_debut=" + date_debut +
+                ", date_fin=" + date_fin +
+                '}';
+    }
 }
