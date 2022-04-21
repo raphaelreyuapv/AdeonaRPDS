@@ -5,7 +5,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import net.synedra.validatorfx.Check;
 
 public class TripDetailsController {
 
@@ -60,9 +59,12 @@ public class TripDetailsController {
     @FXML
     private Button contact;
 
-    private static void test()
+    public void test()
     {
-        System.out.println("fonctionne");
+        //System.out.println("fonctionne");
+
+        Sejour sej  = SearchHelper.getSejour("Sejour ardeche");
+        System.out.println(sej.cuisine);
 
     }
 
