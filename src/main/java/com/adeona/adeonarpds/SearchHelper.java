@@ -59,9 +59,9 @@ public class SearchHelper {
 
     public static void addSejour(Sejour s,int idhost){
         Connection conn = null;
-        Statement statement = null;
         String query = "INSERT INTO sejour(titre,lieu,description,id_host,URL_image,note,nombre_chambre,type_logement,capacity,pension,cuisine,internet,television,lave_linge,date_debut,date_fin) VALUES (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
         try {
+            conn = DriverManager.getConnection(url);
             PreparedStatement preparedStatement = conn.prepareStatement(query);
             preparedStatement.setString(1,s.getTitre());
             preparedStatement.setString(2,s.getLieu());
