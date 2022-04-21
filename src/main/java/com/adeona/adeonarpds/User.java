@@ -23,4 +23,20 @@ public class User {
                 ", type=" + type +
                 '}';
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public List<String> getUrls() {
+        return urls;
+    }
+
+    public int getType() {
+        return type;
+    }
 }
