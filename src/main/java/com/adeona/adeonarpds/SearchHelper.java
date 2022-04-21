@@ -38,6 +38,25 @@ public class SearchHelper {
         return null;
     }
 
+    public static Sejour getSejour(String titre){
+        Connection conn = null;
+        Statement statement = null;
+        String query = String.format("SELECT * FROM sejour  WHERE titre LIKE '%s'", "%"+titre+"%");
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour res = new Sejour(rs);
+                return res;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return null;
+    }
+
 
 
 
