@@ -28,7 +28,7 @@ public class SearchHelper {
             while(rs.next()){
                 List<String> urls = new ArrayList<String>();
                 urls.add(rs.getString("imageURL"));
-                User res = new User(rs.getString("name"),rs.getString("desc"),urls,rs.getInt("type"));
+                User res = new User(rs.getString("name"),rs.getString("desc"),urls,rs.getInt("type"),rs.getInt("id"));
                 return res;
             }
         } catch (SQLException e) {
@@ -50,7 +50,7 @@ public class SearchHelper {
             while(rs.next()){
                 List<String> urls = new ArrayList<String>();
                 urls.add(rs.getString("imageURL"));
-                User res = new User(rs.getString("name"),rs.getString("desc"),urls,rs.getInt("type"));
+                User res = new User(rs.getString("name"),rs.getString("desc"),urls,rs.getInt("type"),rs.getInt("id"));
                 return res;
             }
         } catch (SQLException e) {

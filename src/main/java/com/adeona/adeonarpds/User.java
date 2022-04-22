@@ -5,13 +5,15 @@ import java.util.List;
 public class User {
     String name;
     String desc;
+    int id;
     List<String> urls;
     int type;
-    public User(String name,String desc,List<String> urls,int type){
+    public User(String name,String desc,List<String> urls,int type,int id){
         this.name=name;
         this.desc=desc;
         this.urls=urls;
         this.type=type;
+        this.id=id;
     }
 
     @Override
@@ -38,5 +40,8 @@ public class User {
 
     public int getType() {
         return type;
+    }
+    public int getId(){
+        return id;
     }
 }
