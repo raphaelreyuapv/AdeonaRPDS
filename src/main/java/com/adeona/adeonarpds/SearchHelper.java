@@ -38,6 +38,28 @@ public class SearchHelper {
         return null;
     }
 
+    public static User getUser(int id)
+    {
+        Connection conn = null;
+        Statement statement = null;
+        String query = String.format("SELECT * FROM users WHERE id = %d",  id );
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                List<String> urls = new ArrayList<String>();
+                urls.add(rs.getString("imageURL"));
+                User res = new User(rs.getString("name"),rs.getString("desc"),urls,rs.getInt("type"));
+                return res;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return null;
+    }
+
     public static Sejour getSejour(String titre){
         Connection conn = null;
         Statement statement = null;
