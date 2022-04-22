@@ -79,6 +79,26 @@ public class SearchHelper {
         return null;
     }
 
+    public static List<Sejour> getSejours(String search_param){
+        Connection conn = null;
+        Statement statement = null;
+        List<Sejour> res = new ArrayList<Sejour>();
+        String query = String.format("SELECT * FROM sejour  WHERE titre LIKE '%s' OR lieu LIKE '%s' OR description LIKE '%s'", "%"+search_param+"%","%"+search_param+"%","%"+search_param+"%");
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour itm = new Sejour(rs);
+                res.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return res;
+    }
+
 
 
 
