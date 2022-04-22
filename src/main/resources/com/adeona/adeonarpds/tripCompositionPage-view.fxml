@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<ScrollPane xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.TripCompositionController">
+   <content>
+      <AnchorPane prefHeight="900.0" prefWidth="1000.0">
+         <children>
+            <Text layoutX="426.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Vos séjours" underline="true">
+               <font>
+                  <Font size="26.0" />
+               </font>
+            </Text>
+            <TableView layoutX="42.0" layoutY="190.0" prefHeight="575.0" prefWidth="917.0">
+              <columns>
+                <TableColumn prefWidth="216.0" resizable="false" text="Titre Séjour" />
+                <TableColumn prefWidth="201.0" resizable="false" text="Date de début" />
+                  <TableColumn editable="false" prefWidth="178.0" resizable="false" text="Date de fin" />
+                  <TableColumn editable="false" prefWidth="153.0" text="Voir le voyage" />
+                  <TableColumn editable="false" prefWidth="168.0" />
+              </columns>
+            </TableView>
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

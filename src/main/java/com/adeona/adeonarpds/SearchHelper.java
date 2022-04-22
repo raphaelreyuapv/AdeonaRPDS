@@ -79,6 +79,25 @@ public class SearchHelper {
         return null;
     }
 
+    public static ArrayList<Reservation> getClientReservation(int clientId){
+        Connection conn = null;
+        Statement statement = null;
+        String query = String.format("SELECT * FROM reservation WHERE client_id = %d", clientId);
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour res = new Sejour(rs);
+                return res;
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return null;
+    }
+
 
 
 

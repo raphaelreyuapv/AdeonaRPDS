@@ -1,7 +1,7 @@
 package com.adeona.adeonarpds;
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
+
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -13,6 +13,8 @@ public class TripDetailsController {
 
 
     private ArrayList<ImageView> imgLayout = new ArrayList<>();
+
+    private int trip_id;
 
     @FXML
     private Label tripTitle;
@@ -129,10 +131,12 @@ public class TripDetailsController {
             this.washer.setSelected(sej.isLave_linge());
             this.washer.setDisable(true);
 
-            String[] imgList = sej.getURL_image().split(";");
-            for(int i = 0; i < imgList.length; i++)
+            if(!sej.getURL_image().equals(""))
             {
-                this.imgLayout.get(i).setImage(new Image(imgList[i]));
+                String[] imgList = sej.getURL_image().split(";");
+                for (int i = 0; i < imgList.length; i++) {
+                    this.imgLayout.get(i).setImage(new Image(imgList[i]));
+                }
             }
 
 
