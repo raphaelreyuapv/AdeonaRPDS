@@ -5,8 +5,12 @@
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.SearchDisplay">
    <children>
-      <Pane prefHeight="70.0" prefWidth="602.0" style="-fx-background-color: grey;" />
-      <ScrollPane layoutY="70.0">
+      <Pane prefHeight="70.0" prefWidth="602.0">
+         <children>
+            <TextField layoutX="94.0" layoutY="23.0" prefHeight="25.0" prefWidth="483.0" />
+            <Label layoutX="41.0" layoutY="27.0" prefHeight="17.0" prefWidth="39.0" text="Search" />
+         </children></Pane>
+      <ScrollPane layoutY="70.0" prefHeight="330.0" prefWidth="600.0">
          <content>
             <VBox fx:id="itemHolder" prefHeight="330.0" prefWidth="600.0" />
          </content>

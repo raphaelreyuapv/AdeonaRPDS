@@ -14,7 +14,7 @@
                <image>
                   <Image url="@img.png" />
                </image></ImageView>
-            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="124.0">
+            <VBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="295.0">
                <children>
                   <Label fx:id="title" text="Title">
                      <font>
@@ -27,9 +27,12 @@
                      <VBox.margin>
                         <Insets left="10.0" />
                      </VBox.margin></Label>
+                  <Label fx:id="host" text="Host">
+                     <VBox.margin>
+                        <Insets left="10.0" />
+                     </VBox.margin></Label>
                </children>
             </VBox>
-            <Label fx:id="host" alignment="CENTER_RIGHT" prefHeight="18.0" prefWidth="162.0" text="Host" />
          </children></HBox>
    </children>
    <padding>
