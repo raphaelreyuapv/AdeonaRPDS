@@ -99,6 +99,26 @@ public class SearchHelper {
         return res;
     }
 
+    public static List<Sejour> getAllSejours(){
+        Connection conn = null;
+        Statement statement = null;
+        List<Sejour> res = new ArrayList<Sejour>();
+        String query = String.format("SELECT * FROM sejour");
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour itm = new Sejour(rs);
+                res.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return res;
+    }
+
 
 
 
