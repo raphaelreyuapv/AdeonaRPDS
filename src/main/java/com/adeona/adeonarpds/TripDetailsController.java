@@ -3,10 +3,13 @@ package com.adeona.adeonarpds;
 import javafx.fxml.FXML;
 
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 
+import java.sql.Date;
 import java.util.ArrayList;
 
 public class TripDetailsController {
@@ -14,7 +17,7 @@ public class TripDetailsController {
 
     private ArrayList<ImageView> imgLayout = new ArrayList<>();
 
-    private int trip_id;
+    private int tripId;
 
     @FXML
     private Label tripTitle;
@@ -71,14 +74,30 @@ public class TripDetailsController {
     private Label end;
 
     @FXML
+    private AnchorPane reservation;
+
+    @FXML
+    private DatePicker datePickerBegin;
+
+    @FXML
+    private DatePicker datePickerEnd;
+
+    private Sejour sej;
+
+    public void setTripId(int tripId)
+    {
+        this.tripId = tripId;
+    }
+
+    @FXML
     private void initialize()
     {
-        System.out.println("fonctionne");
+        reservation.setVisible(false);
         imgLayout.add(img1);
         imgLayout.add(img2);
         imgLayout.add(img3);
 
-        Sejour sej = SearchHelper.getSejour("Sejour ardeche");
+        sej = SearchHelper.getSejour(1);
 
         if(sej != null) {
             tripTitle.setText(sej.getTitre());
@@ -131,7 +150,7 @@ public class TripDetailsController {
             this.washer.setSelected(sej.isLave_linge());
             this.washer.setDisable(true);
 
-            if(!sej.getURL_image().equals(""))
+            if(sej.getURL_image() != null && sej.getURL_image().equals(""))
             {
                 String[] imgList = sej.getURL_image().split(";");
                 for (int i = 0; i < imgList.length; i++) {
@@ -143,7 +162,24 @@ public class TripDetailsController {
 
         }
 
+    }
 
+    @FXML
+    public void displayReservation()
+    {
+        reservation.setVisible(true);
+    }
+
+    @FXML
+    public void AddToDatabase()
+    {
+        if(datePickerBegin.valueProperty() != null && datePickerEnd.valueProperty() != null)
+        {
+            if(datePickerBegin.valueProperty().get() != datePickerEnd.valueProperty().get())
+            {
+                ReservationDatabase.setReservation(Date.valueOf(datePickerBegin.valueProperty().get()), Date.valueOf(datePickerEnd.valueProperty().get()), sej.getId_host(), 1, sej.getId());
+            }
+        }
     }
 
 
