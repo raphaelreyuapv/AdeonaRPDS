@@ -37,6 +37,12 @@ public class CompositionController {
     @FXML
     private DatePicker date_fin;
 
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
 
     @FXML
     private void initialize(){

@@ -31,6 +31,7 @@ public class HelloApplication extends Application {
         //displayTripPage(1);
         //displayTripComposition(0);
         displayHostProfile(0);
+        displayTripCreationPage();
     }
 
     public void initRootLayout()
@@ -57,7 +58,7 @@ public class HelloApplication extends Application {
         try {
             //charger le fichier fxml associé
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("view/MenuOverview.fxml")); //on charge la vue souhaitée
+            loader.setLocation(HelloApplication.class.getResource("")); //on charge la vue souhaitée
             AnchorPane menuOverview = (AnchorPane) loader.load();
 
 
@@ -92,9 +93,22 @@ public class HelloApplication extends Application {
         }
     }
 
-    public void displayTripEditPage()
+    public void displayTripCreationPage()
     {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("composition.fxml"));
+            AnchorPane view = loader.load();
 
+            CompositionController controller = loader.getController();
+            controller.setMainApp(this);
+
+            mainStage.setWidth(600);
+            mainStage.setHeight(645);
+            rootLayout.setCenter(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
