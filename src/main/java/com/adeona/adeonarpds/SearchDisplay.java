@@ -34,11 +34,12 @@ public class SearchDisplay implements Initializable{
                 for (int i=0; i< nodes.length; i++) {
                     try {
                         final FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("search_item.fxml"));
+                        int id = allSejours.get(i).getId();
                         String title = allSejours.get(i).getTitre();
                         String loc = allSejours.get(i).getLieu();
                         String host = SearchHelper.getUser(allSejours.get(i).getId_host()).getName();
                         String img = allSejours.get(i).getURL_image();
-                        fxmlLoader.setControllerFactory(controllerClass -> new SearchItem(title, loc, host, img));
+                        fxmlLoader.setControllerFactory(controllerClass -> new SearchItem(id, title, loc, host, img));
                         nodes[i] = fxmlLoader.load();
                         final int index = i;
                         Platform.runLater(new Runnable() {
