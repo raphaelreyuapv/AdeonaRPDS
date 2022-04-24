@@ -13,7 +13,7 @@ public class ConversationController {
 
     private String user_home;
     public void send(){
-        chatbox.appendText("\n"+user_home+":"+chatinput.getText());
+        chatbox.appendText("\n"+Session.name_logged+":"+chatinput.getText());
         chatinput.setText("");
     }
 
