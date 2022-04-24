@@ -84,23 +84,32 @@ public class TripDetailsController {
 
     private Sejour sej;
 
+    private HelloApplication helloApplication;
+
     public void setTripId(int tripId)
     {
         this.tripId = tripId;
     }
 
-    @FXML
-    private void initialize()
+    public void setMainApp(HelloApplication helloApplication, int tripId)
+    {
+        this.helloApplication = helloApplication;
+        this.tripId = tripId;
+        displayInformation();
+    }
+
+    private void displayInformation()
     {
         reservation.setVisible(false);
         imgLayout.add(img1);
         imgLayout.add(img2);
         imgLayout.add(img3);
 
-        sej = SearchHelper.getSejour(1);
+        sej = SearchHelper.getSejour(tripId);
 
         if(sej != null) {
             tripTitle.setText(sej.getTitre());
+            this.helloApplication.setTitle("Séjour - " + sej.getTitre());
             System.out.println(sej.toString());
             place.setText(sej.getLieu());
             System.out.println(sej.getId_host());
@@ -157,12 +166,12 @@ public class TripDetailsController {
                     this.imgLayout.get(i).setImage(new Image(imgList[i]));
                 }
             }
-
-
-
         }
-
     }
+
+    @FXML
+    private void initialize()
+    {}
 
     @FXML
     public void displayReservation()

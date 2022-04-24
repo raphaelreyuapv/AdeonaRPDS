@@ -33,11 +33,22 @@ public class TripCompositionController {
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
     @FXML
-    AnchorPane currentWindow;
+    private AnchorPane currentWindow;
 
-    @FXML
-    private void initialize() {
-        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(0);
+    private HelloApplication helloApplication;
+
+    private int userID;
+
+    public void setMainApp(HelloApplication helloApplication, int userID)
+    {
+        this.helloApplication = helloApplication;
+        this.userID = userID;
+        display();
+    }
+
+    public void display()
+    {
+        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
         begin.setCellValueFactory(cellData -> cellData.getValue().dateBeginProperty());
@@ -107,6 +118,11 @@ public class TripCompositionController {
                 }
             }
         }
+    }
+
+    @FXML
+    private void initialize() {
+
     }
 
     public void cancel(TripCompositionRow c)
