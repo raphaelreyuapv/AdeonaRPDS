@@ -17,30 +17,19 @@ public class ReservationDatabase {
 
     public static void setReservation(Date dateBegin, Date dateEnd, int ownerId, int clientId, int tripId)
     {
-        String query = "INSERT INTO reservation (id_sejour, host_id, client_id, date_debut, date_fin)";
+        String query = "INSERT INTO reservation(id_sejour, host_id, client_id, date_debut, date_fin) VALUES (?,?,?,?,?)";
         try {
             Connection connection = DriverManager.getConnection(url);
             PreparedStatement statement;
             statement = connection.prepareStatement(query);
 
-
-            ResultSet resultSet;
-            resultSet = statement.executeQuery("select MAX(id) from reservation");
-
-            int nID = 0;
-
-            while (resultSet.next()) {
-                nID = resultSet.getInt("MAX(id)");
-            }
-            int userID = nID+1;
-
-            statement.setInt(1, userID);
-            statement.setInt(2, tripId);
-            statement.setInt(3, ownerId);
+            statement.setInt(1, tripId);
+            statement.setInt(2, ownerId);
+            statement.setInt(3, clientId);
             statement.setDate(4, dateBegin);
             statement.setDate(5, dateEnd);
 
-            statement.executeUpdate(query);
+            statement.executeUpdate();
             statement.close();
             connection.close();
 

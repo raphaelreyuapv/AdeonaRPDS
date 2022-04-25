@@ -186,7 +186,7 @@ public class TripDetailsController {
         {
             if(datePickerBegin.valueProperty().get() != datePickerEnd.valueProperty().get())
             {
-                ReservationDatabase.setReservation(Date.valueOf(datePickerBegin.valueProperty().get()), Date.valueOf(datePickerEnd.valueProperty().get()), sej.getId_host(), 1, sej.getId());
+                ReservationDatabase.setReservation(Date.valueOf(datePickerBegin.valueProperty().get()), Date.valueOf(datePickerEnd.valueProperty().get()), sej.getId_host(), Session.id_logged, sej.getId());
             }
         }
     }

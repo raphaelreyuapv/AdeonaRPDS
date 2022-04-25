@@ -5,7 +5,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
 import javafx.stage.Stage;
 
@@ -16,8 +15,6 @@ public class HelloApplication extends Application {
     private Stage mainStage;
     private BorderPane rootLayout;
     private Scene scene;
-
-    private Session userSession;
 
     @Override
     public void start(Stage stage) throws IOException {
