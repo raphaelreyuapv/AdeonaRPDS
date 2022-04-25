@@ -34,19 +34,19 @@ public class TripCompositionController {
 
     private HelloApplication helloApplication;
 
-    private int userID;
+    private int clientID;
 
-    public void setMainApp(HelloApplication helloApplication, int userID)
+    public void setMainApp(HelloApplication helloApplication, int clientID)
     {
         this.helloApplication = helloApplication;
-        this.userID = userID;
+        this.clientID = clientID;
         display();
     }
 
     public void display()
     {
-        System.out.println("User ID : " +  userID);
-        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
+        System.out.println("User ID : " +  clientID);
+        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(clientID);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
         begin.setCellValueFactory(cellData -> cellData.getValue().dateBeginProperty());

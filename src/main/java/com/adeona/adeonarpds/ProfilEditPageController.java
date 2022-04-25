@@ -126,11 +126,7 @@ public class ProfilEditPageController {
                 creation = true;
 
                 helloApplication.displayHostProfile(userID);
-                /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilPage-view.fxml"));
-                AnchorPane window = fxmlLoader.load();
-                currentWindow.getChildren().setAll(window);
-                ProfilPageController profilPageController = fxmlLoader.getController();
-                profilPageController.loadUserData(userID);*/
+
 
             }
             catch (Exception exception) {
