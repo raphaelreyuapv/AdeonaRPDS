@@ -98,9 +98,9 @@ public class HelloApplication extends Application {
             //on charge le controlleur associé a la vue
             MenuController controller = loader.getController();
             controller.setMainApp(this);
-            view.setPrefWidth(1000);
+            view.setPrefWidth(750);
             view.setPrefHeight(700);
-            mainStage.setWidth(1000);
+            mainStage.setWidth(750);
             mainStage.setHeight(700);
 
             //on met la vue au centre de la scene
