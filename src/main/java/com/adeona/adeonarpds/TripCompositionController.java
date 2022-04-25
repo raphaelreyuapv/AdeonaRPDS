@@ -32,8 +32,7 @@ public class TripCompositionController {
 
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
-    @FXML
-    private AnchorPane currentWindow;
+
 
     private HelloApplication helloApplication;
 
@@ -133,19 +132,9 @@ public class TripCompositionController {
 
     public void goToTrip(TripCompositionRow c)
     {
-        //Pour aller vers le voyage en question, à améliorer avec la navigation.
-        /*try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("stay-details.fxml"));
-            ScrollPane window = fxmlLoader.load();
-            currentWindow.getChildren().setAll(window);
-            TripDetailsController tripDetailsController = fxmlLoader.getController();
-            tripDetailsController.setTripId(c.getTripId());
-
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }*/
+        this.helloApplication.displayTripPage(c.getTripId());
     }
+
+    @FXML
+    private void
 }

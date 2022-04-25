@@ -82,4 +82,10 @@ public class CompositionController {
         SearchHelper.addSejour(s,0);
 
     }
+
+    @FXML
+    public void returnToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
 }

@@ -17,6 +17,8 @@ public class HelloApplication extends Application {
     private BorderPane rootLayout;
     private Scene scene;
 
+    private Session userSession;
+
     @Override
     public void start(Stage stage) throws IOException {
         /*FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("rootLayout.fxml"));
@@ -27,12 +29,15 @@ public class HelloApplication extends Application {
         this.mainStage = stage;
         this.mainStage.setResizable(false);
         initRootLayout();
+
         //displayResearchMenu();
         //displayTripPage(1);
         //displayTripComposition(0);
         //displayHostProfile(0);
         //displayTripCreationPage();
-        displaySearchMenu();
+        //displaySearch();
+        //displayMenu();
+        displayConnection();
     }
 
     public void initRootLayout()
@@ -54,7 +59,59 @@ public class HelloApplication extends Application {
 
     }
 
-    public void displaySearchMenu()
+    public void displayConnection()
+    {
+        try {
+            //charger le fichier fxml associé
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("hello-view.fxml")); //on charge la vue souhaitée
+            AnchorPane view = (AnchorPane) loader.load();
+
+            this.mainStage.setTitle("Adeonas - Menu"); //on choisi le titre de la fenêtre
+
+            //on charge le controlleur associé a la vue
+            HelloController controller = loader.getController();
+            controller.setMainApp(this);
+            view.setPrefWidth(600);
+            view.setPrefHeight(600);
+            mainStage.setWidth(600);
+            mainStage.setHeight(600);
+
+            //on met la vue au centre de la scene
+
+            rootLayout.setCenter(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayMenu()
+    {
+        try {
+            //charger le fichier fxml associé
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("menu-view.fxml")); //on charge la vue souhaitée
+            AnchorPane view = (AnchorPane) loader.load();
+
+            this.mainStage.setTitle("Adeonas - Menu"); //on choisi le titre de la fenêtre
+
+            //on charge le controlleur associé a la vue
+            MenuController controller = loader.getController();
+            controller.setMainApp(this);
+            view.setPrefWidth(1000);
+            view.setPrefHeight(700);
+            mainStage.setWidth(1000);
+            mainStage.setHeight(700);
+
+            //on met la vue au centre de la scene
+
+            rootLayout.setCenter(view);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displaySearch()
     {
         try {
             //charger le fichier fxml associé
@@ -63,7 +120,7 @@ public class HelloApplication extends Application {
             AnchorPane view = (AnchorPane) loader.load();
 
 
-            this.mainStage.setTitle("Adeonas - Menu"); //on choisi le titre de la fenêtre
+            this.mainStage.setTitle("Adeonas - Recherche"); //on choisi le titre de la fenêtre
 
             //on charge le controlleur associé a la vue
             SearchDisplay controller = loader.getController();
@@ -108,8 +165,8 @@ public class HelloApplication extends Application {
             CompositionController controller = loader.getController();
             controller.setMainApp(this);
 
-            mainStage.setWidth(600);
-            mainStage.setHeight(645);
+            mainStage.setWidth(700);
+            mainStage.setHeight(700);
             rootLayout.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();
@@ -158,7 +215,21 @@ public class HelloApplication extends Application {
 
     public void displayHostReservation(int hostID)
     {
+        try {
 
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("hostPlanning.fxml"));
+            AnchorPane view = loader.load();
+
+            HostPlanningController controller = loader.getController();
+            controller.setMainApp(this, hostID);
+
+            mainStage.setWidth(1000);
+            mainStage.setHeight(900);
+            rootLayout.setCenter(view);
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public void displayTripComposition(int userID)
