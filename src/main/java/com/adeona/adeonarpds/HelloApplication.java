@@ -7,6 +7,7 @@ import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -245,6 +246,24 @@ public class HelloApplication extends Application {
 
             mainStage.setWidth(1000);
             mainStage.setHeight(800);
+            rootLayout.setCenter(stayView);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void displayConversation()
+    {
+        try
+        {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(HelloApplication.class.getResource("conversation.fxml"));
+            VBox stayView = loader.load();
+            ConversationController controller = loader.getController();
+            controller.setMainApp(this);
+
+            mainStage.setWidth(600);
+            mainStage.setHeight(300);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
             e.printStackTrace();
