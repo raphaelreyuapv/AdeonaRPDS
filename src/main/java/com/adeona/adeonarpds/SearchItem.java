@@ -6,7 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.w3c.dom.events.MouseEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -47,6 +48,10 @@ public class SearchItem implements Initializable {
         this.hostItem = host;
         this.imageItem = clazz.getResourceAsStream(img);
         this.helloApplication = helloApplication;
+
+        if (this.imageItem == null) {
+            this.imageItem = clazz.getResourceAsStream("default_img.png");
+        }
     }
 
     @Override
