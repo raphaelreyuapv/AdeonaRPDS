@@ -36,8 +36,19 @@ public class HostPlanningController {
 
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
-    @FXML
-    private void initialize() {
+    private HelloApplication helloApplication;
+
+    private int hostID;
+
+    public void setMainApp(HelloApplication helloApplication, int hostID)
+    {
+        this.helloApplication = helloApplication;
+        this.hostID = hostID;
+        display();
+    }
+
+    public void display()
+    {
         ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getHostReservationsList(0);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
@@ -103,10 +114,6 @@ public class HostPlanningController {
                     reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), SearchHelper.getUser(r.getClient_id()).getName()));
                     reservationTable.setItems(reservationsData);
                 }
-                else
-                {
-                    System.out.println("null");
-                }
             }
         }
     }
@@ -119,7 +126,13 @@ public class HostPlanningController {
 
     public void goToTrip(TripCompositionRow c)
     {
-        //to be implemented with the navigation
+        this.helloApplication.displayTripPage(c.getTripId());
+    }
+
+    @FXML
+    public void goToMenu()
+    {
+        this.helloApplication.displayMenu();
     }
 
 
