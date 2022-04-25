@@ -32,12 +32,6 @@ public class ProfilPageController {
 
     public void loadUserData(int userID){
 
-        /*
-            quand la scene ProfilPage est appelle, utiliser les deux lignes dessous.
-            ProfilPageController profilPageController = fxmlLoader.getController();
-            profilPageController.loadUserData(0);
-         */
-
         try {
 
             Connection connection = DriverManager.getConnection("jdbc:sqlite:users.sqlite");
@@ -65,22 +59,15 @@ public class ProfilPageController {
     }
 
     @FXML
-    protected void onEditButton() {
+    public void onEditButton() {
         this.helloApplication.displayHostProfileEdit(userID);
-
-        /*try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilEditPage-view.fxml"));
-            AnchorPane window = fxmlLoader.load();
-            currentWindow.getChildren().setAll(window);
-            ProfilEditPageController profilEditPageController = fxmlLoader.getController();
-            profilEditPageController.loadUserData(userID);
-
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }*/
     }
+
+    public void backToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
+
+
 
 }

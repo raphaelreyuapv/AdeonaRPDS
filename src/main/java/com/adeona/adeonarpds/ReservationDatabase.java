@@ -17,11 +17,12 @@ public class ReservationDatabase {
 
     public static void setReservation(Date dateBegin, Date dateEnd, int ownerId, int clientId, int tripId)
     {
+        String query = "INSERT INTO reservation (id_sejour, host_id, client_id, date_debut, date_fin)";
         try {
             Connection connection = DriverManager.getConnection(url);
-            Statement statement;
-            statement = connection.createStatement();
-            String query;
+            PreparedStatement statement;
+            statement = connection.prepareStatement(query);
+
 
             ResultSet resultSet;
             resultSet = statement.executeQuery("select MAX(id) from reservation");
@@ -33,7 +34,11 @@ public class ReservationDatabase {
             }
             int userID = nID+1;
 
-            query = "INSERT INTO reservation VALUES ("+ userID +","+ tripId +", '"+ ownerId + "' , '"+ clientId +"', '"+ dateBegin +"', '"+ dateEnd +"' )";
+            statement.setInt(1, userID);
+            statement.setInt(2, tripId);
+            statement.setInt(3, ownerId);
+            statement.setDate(4, dateBegin);
+            statement.setDate(5, dateEnd);
 
             statement.executeUpdate(query);
             statement.close();

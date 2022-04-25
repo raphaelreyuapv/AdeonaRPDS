@@ -191,6 +191,18 @@ public class TripDetailsController {
         }
     }
 
+    @FXML
+    public void backToSearch()
+    {
+        this.helloApplication.displaySearch();
+    }
+
+    @FXML
+    public void backToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
+
 
 
 
