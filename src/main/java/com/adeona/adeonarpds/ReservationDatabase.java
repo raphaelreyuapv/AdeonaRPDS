@@ -23,7 +23,6 @@ public class ReservationDatabase {
             statement = connection.createStatement();
             String query;
 
-
             ResultSet resultSet;
             resultSet = statement.executeQuery("select MAX(id) from reservation");
 
@@ -33,7 +32,6 @@ public class ReservationDatabase {
                 nID = resultSet.getInt("MAX(id)");
             }
             int userID = nID+1;
-
 
             query = "INSERT INTO reservation VALUES ("+ userID +","+ tripId +", '"+ ownerId + "' , '"+ clientId +"', '"+ dateBegin +"', '"+ dateEnd +"' )";
 
