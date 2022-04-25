@@ -2,6 +2,7 @@ package com.adeona.adeonarpds;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,6 +31,8 @@ public class ProfilEditPageController {
     @FXML
     private TextArea userDescField;
 
+    @FXML
+    private CheckBox typeField;
     private boolean creation = true;
     private int userID = -1;
 
@@ -78,7 +81,10 @@ public class ProfilEditPageController {
             warningMessage.setVisible(true);
         }
         else{
-
+            int type=0;
+            if(typeField.isSelected()){
+                type=1;
+            }
             try {
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:users.sqlite");
                 Statement statement;
@@ -97,7 +103,7 @@ public class ProfilEditPageController {
                     }
 
                     userID = nID+1;
-                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', 0 )";
+                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', "+type+")";
                 }
                 else{
 
