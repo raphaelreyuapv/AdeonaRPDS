@@ -60,7 +60,7 @@ public class HostPlanningController {
                 System.out.println(r.toString());
                 delete.setCellFactory(param -> new TableCell<TripCompositionRow, TripCompositionRow>()
                 {
-                    private final Button deleteButton = new Button("Supprimer");
+                    private final Button deleteButton = new Button("Annuler");
 
                     @Override
                     protected void updateItem(TripCompositionRow c, boolean empty) {
