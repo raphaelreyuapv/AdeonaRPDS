@@ -2,6 +2,7 @@ package com.adeona.adeonarpds;
 
 import javafx.fxml.FXML;
 
+import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -86,6 +87,8 @@ public class TripDetailsController {
 
     private HelloApplication helloApplication;
 
+    private Button contactButton;
+
     public void setTripId(int tripId)
     {
         this.tripId = tripId;
@@ -104,6 +107,11 @@ public class TripDetailsController {
         imgLayout.add(img1);
         imgLayout.add(img2);
         imgLayout.add(img3);
+
+        if(Session.type_logged == 1)
+        {
+            contactButton.setText("Editer le séjour");
+        }
 
         sej = SearchHelper.getSejour(tripId);
 
@@ -176,7 +184,14 @@ public class TripDetailsController {
     @FXML
     public void displayReservation()
     {
-        reservation.setVisible(true);
+        if(Session.type_logged == 1)
+        {
+            this.helloApplication.displayTripCreationPage();
+        }
+        else
+        {
+            reservation.setVisible(true);
+        }
     }
 
     @FXML
