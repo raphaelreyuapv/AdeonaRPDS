@@ -37,9 +37,6 @@ public class HostPlanningController {
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
     @FXML
-    AnchorPane currentWindow;
-
-    @FXML
     private void initialize() {
         ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getHostReservationsList(0);
 
