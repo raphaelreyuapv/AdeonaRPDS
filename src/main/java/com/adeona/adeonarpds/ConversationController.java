@@ -1,8 +1,11 @@
 package com.adeona.adeonarpds;
 
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 
 public class ConversationController {
 
@@ -16,7 +19,16 @@ public class ConversationController {
         chatbox.appendText("\n"+Session.name_logged+":"+chatinput.getText());
         chatinput.setText("");
     }
-
+    @FXML
+    private void initialize(){
+        chatinput.setOnKeyPressed(new EventHandler<KeyEvent>() {
+            @Override
+            public void handle(KeyEvent event) {
+                if(event.getCode() == KeyCode.ENTER)
+                send();
+            }
+        });
+    }
     public void setUser_home(String user_home){
         this.user_home = user_home;
     }
@@ -24,4 +36,6 @@ public class ConversationController {
     public void loadhistory(String hist){
         chatbox.setText(hist);
     }
+
+
 }
