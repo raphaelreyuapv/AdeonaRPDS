@@ -28,7 +28,7 @@
             <Font size="14.0" />
          </font>
       </Text>
-      <Button layoutX="23.0" layoutY="46.0" mnemonicParsing="false" text="Retour menu">
+      <Button layoutX="23.0" layoutY="46.0" mnemonicParsing="false" onMouseClicked="#backToMenu" text="Retour menu">
          <font>
             <Font size="17.0" />
          </font>

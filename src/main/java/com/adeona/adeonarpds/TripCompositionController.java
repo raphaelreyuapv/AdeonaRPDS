@@ -136,5 +136,8 @@ public class TripCompositionController {
     }
 
     @FXML
-    private void
+    private void backToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
 }
