@@ -50,7 +50,7 @@ public class ProfilEditPageController {
             resultSet = statement.executeQuery("select name,desc,imageURL from users where id="+userID);
             creation = false;
             this.userID = userID;
-
+            typeField.setVisible(false);
             while (resultSet.next()) {
 
                 userPseudoField.setText(resultSet.getString("name"));
