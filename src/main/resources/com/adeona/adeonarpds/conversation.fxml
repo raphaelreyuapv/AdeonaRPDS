@@ -4,9 +4,9 @@
 <?import javafx.scene.layout.*?>
 
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="240.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
+<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
    <children>
-      <TextArea fx:id="chatbox" prefHeight="188.0" prefWidth="600.0" text="Hello" />
-      <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" text="Hello" />
+      <TextArea fx:id="chatbox" editable="false" prefHeight="180.0" prefWidth="600.0" text="Discussion" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
+      <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
    </children>
-</VBox>
+</AnchorPane>
