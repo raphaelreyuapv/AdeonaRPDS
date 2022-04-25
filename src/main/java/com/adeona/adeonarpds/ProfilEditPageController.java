@@ -103,7 +103,7 @@ public class ProfilEditPageController {
                     }
 
                     userID = nID+1;
-                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', type )";
+                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', "+type+")";
                 }
                 else{
 
