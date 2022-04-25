@@ -165,8 +165,8 @@ public class HelloApplication extends Application {
             CompositionController controller = loader.getController();
             controller.setMainApp(this);
 
-            mainStage.setWidth(700);
-            mainStage.setHeight(700);
+            mainStage.setWidth(800);
+            mainStage.setHeight(850);
             rootLayout.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();

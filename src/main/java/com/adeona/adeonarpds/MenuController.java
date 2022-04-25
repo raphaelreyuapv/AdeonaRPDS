@@ -15,10 +15,7 @@ public class MenuController {
     private Button searchButton;
 
     @FXML
-    private Button reservationButton;
-
-    @FXML
-    private Button profileButton;
+    private Button tripCompoButton;
 
     public void setMainApp(HelloApplication helloApplication)
     {
@@ -31,6 +28,8 @@ public class MenuController {
         if (Session.type_logged == 1) {
             hostPane.setVisible(true);
             this.searchButton.setText("Proposition de séjour");
+            this.tripCompoButton.setVisible(false);
+
         }
 
     }
