@@ -179,6 +179,30 @@ public class SearchHelper {
         return null;
     }
 
+    public static List<Reservation> getHostReservationsList(int hostId){
+        Connection conn = null;
+        Statement statement = null;
+        List<Reservation> reservationList = new ArrayList<Reservation>();
+        String query = String.format("SELECT * FROM reservation WHERE host_id = %d", hostId);
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Reservation itm = new Reservation(rs);
+                reservationList.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+        if(reservationList.size() != 0) {
+            return reservationList;
+        }
+        return null;
+    }
+
     public static List<Sejour> getAllSejours(){
         Connection conn = null;
         Statement statement = null;
@@ -198,8 +222,6 @@ public class SearchHelper {
         }
         return res;
     }
-
-
 
 
 }

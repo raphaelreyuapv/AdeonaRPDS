@@ -1,6 +1,8 @@
 package com.adeona.adeonarpds;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class Session {
 
@@ -9,6 +11,10 @@ public class Session {
     static String desc_logged = "";
     static int type_logged = 0;
     static List<String> urls_img_logged;
+
+    static List<Sejour> sejourOffer = new ArrayList<>();
+    static List<Integer> sejourOfferTravelerID= new ArrayList<>();
+
     static String chat_history = "";
     public static void Login(String name){
         User logged_user = SearchHelper.getUser(name);
@@ -21,4 +27,12 @@ public class Session {
     public static void setChatHistory(String set){
         chat_history = set;
     }
+
+    public static void addSejourOffer(Sejour nSejourOffer, int nOfferTravelerID){
+
+        sejourOffer.add(nSejourOffer);
+        sejourOfferTravelerID.add(nOfferTravelerID);
+
+    }
+
 }

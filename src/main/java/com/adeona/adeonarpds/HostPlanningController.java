@@ -4,14 +4,15 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
-public class TripCompositionController {
-
+public class HostPlanningController {
     @FXML
     private TableView<TripCompositionRow> reservationTable;
 
@@ -25,6 +26,9 @@ public class TripCompositionController {
     private TableColumn<TripCompositionRow, String> end;
 
     @FXML
+    private TableColumn<TripCompositionRow, String> clientName;
+
+    @FXML
     private TableColumn<TripCompositionRow, TripCompositionRow> link;
 
     @FXML
@@ -33,26 +37,13 @@ public class TripCompositionController {
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
     @FXML
-    private AnchorPane currentWindow;
-
-    private HelloApplication helloApplication;
-
-    private int userID;
-
-    public void setMainApp(HelloApplication helloApplication, int userID)
-    {
-        this.helloApplication = helloApplication;
-        this.userID = userID;
-        display();
-    }
-
-    public void display()
-    {
-        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
+    private void initialize() {
+        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getHostReservationsList(0);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
         begin.setCellValueFactory(cellData -> cellData.getValue().dateBeginProperty());
         end.setCellValueFactory(cellData -> cellData.getValue().dateEndProperty());
+        clientName.setCellValueFactory(cellData -> cellData.getValue().clientNameProperty());
 
         delete.setCellValueFactory(
                 param -> new ReadOnlyObjectWrapper<>(param.getValue())
@@ -69,7 +60,7 @@ public class TripCompositionController {
                 System.out.println(r.toString());
                 delete.setCellFactory(param -> new TableCell<TripCompositionRow, TripCompositionRow>()
                 {
-                    private final Button deleteButton = new Button("Supprimer");
+                    private final Button deleteButton = new Button("Annuler");
 
                     @Override
                     protected void updateItem(TripCompositionRow c, boolean empty) {
@@ -107,9 +98,9 @@ public class TripCompositionController {
                 });
 
                 Sejour s = SearchHelper.getSejour(r.getId_sejour());
-                if(s != null)
+                if(s != null && SearchHelper.getUser(r.getClient_id()).getName() != null)
                 {
-                    reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), ""));
+                    reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), SearchHelper.getUser(r.getClient_id()).getName()));
                     reservationTable.setItems(reservationsData);
                 }
                 else
@@ -120,11 +111,6 @@ public class TripCompositionController {
         }
     }
 
-    @FXML
-    private void initialize() {
-
-    }
-
     public void cancel(TripCompositionRow c)
     {
         ReservationDatabase.cancelReservation(c.getTripId(), 0); //suppression dans la base de donnée
@@ -133,19 +119,8 @@ public class TripCompositionController {
 
     public void goToTrip(TripCompositionRow c)
     {
-        //Pour aller vers le voyage en question, à améliorer avec la navigation.
-        /*try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("stay-details.fxml"));
-            ScrollPane window = fxmlLoader.load();
-            currentWindow.getChildren().setAll(window);
-            TripDetailsController tripDetailsController = fxmlLoader.getController();
-            tripDetailsController.setTripId(c.getTripId());
-
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }*/
+        //to be implemented with the navigation
     }
+
+
 }
