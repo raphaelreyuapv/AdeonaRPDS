@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.HostValidationPageController">
+   <children>
+      <Text layoutX="171.0" layoutY="42.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accepter l'offre de séjour">
+         <font>
+            <Font name="System Bold" size="18.0" />
+         </font>
+      </Text>
+      <Text layoutX="185.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Voyageur :" />
+      <Text fx:id="offerUsername" layoutX="349.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" />
+      <Text layoutX="220.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Lieu :" />
+      <Text fx:id="offerLocation" layoutX="349.0" layoutY="170.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Location" />
+      <Text layoutX="151.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Titre du Sejour :" />
+      <Text fx:id="offerTitle" layoutX="349.0" layoutY="140.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Title" />
+      <Text layoutX="173.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Description :" />
+      <Text fx:id="offerDesc" layoutX="346.0" layoutY="229.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Desc&#10;Desc&#10;Desc" wrappingWidth="123.9287109375" />
+      <Text layoutX="216.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date :" />
+      <Text fx:id="offerStart" layoutX="347.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start" />
+      <Text layoutX="429.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="à" />
+      <Text fx:id="offerEnd" layoutX="448.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End" />
+      <Button fx:id="offerButtonNo" layoutX="186.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#onOfferNoButton" text="Refuser" />
+      <Button fx:id="offerButtonYes" layoutX="340.0" layoutY="341.0" mnemonicParsing="false" onMouseClicked="#onOfferYesButton" text="Accepter" />
+   </children>
+</AnchorPane>
