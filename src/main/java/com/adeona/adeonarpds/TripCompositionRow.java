@@ -10,13 +10,16 @@ public class TripCompositionRow {
     private StringProperty tripName;
     private StringProperty dateBegin;
     private StringProperty dateEnd;
+    private StringProperty clientName;
     private int tripId;
 
-    public TripCompositionRow(String tripName, Date dateBegin, Date dateEnd, int tripId) {
+    public TripCompositionRow(String tripName, Date dateBegin, Date dateEnd, int tripId, String clientName) {
         this.tripName = new SimpleStringProperty(tripName);
         this.dateBegin = new SimpleStringProperty(dateBegin.toString());
         this.dateEnd = new SimpleStringProperty(dateEnd.toString());
+        this.clientName = new SimpleStringProperty(clientName);
         this.tripId = tripId;
+
 
     }
 
@@ -46,6 +49,11 @@ public class TripCompositionRow {
 
     public int getTripId() {
         return tripId;
+    }
+
+    public StringProperty clientNameProperty()
+    {
+        return clientName;
     }
 
 
