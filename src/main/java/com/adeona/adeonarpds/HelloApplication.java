@@ -30,13 +30,6 @@ public class HelloApplication extends Application {
         this.mainStage.setResizable(false);
         initRootLayout();
 
-        //displayResearchMenu();
-        //displayTripPage(1);
-        //displayTripComposition(0);
-        //displayHostProfile(0);
-        //displayTripCreationPage();
-        //displaySearch();
-        //displayMenu();
         displayConnection();
     }
 
