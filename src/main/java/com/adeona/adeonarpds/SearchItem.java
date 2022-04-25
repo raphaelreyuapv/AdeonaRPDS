@@ -10,6 +10,8 @@ import org.w3c.dom.events.MouseEvent;
 
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.ResourceBundle;
 
 public class SearchItem implements Initializable {
@@ -45,6 +47,9 @@ public class SearchItem implements Initializable {
         this.locationItem = location;
         this.hostItem = host;
         this.imageItem = clazz.getResourceAsStream(img);
+        if (this.imageItem == null) {
+            this.imageItem = clazz.getResourceAsStream("default_img.png");
+        }
     }
 
     @Override
