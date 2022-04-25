@@ -71,7 +71,13 @@ public class SearchDisplay implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.sejoursToDisplay = SearchHelper.getAllSejours();
+        Session.Login("Damien");
+        if (Session.type_logged == 1) {
+            this.sejoursToDisplay = SearchHelper.getAllHostSejours(Session.id_logged);
+        }
+        else {
+            this.sejoursToDisplay = SearchHelper.getAllSejours();
+        }
         service.start();
     }
 
