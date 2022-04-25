@@ -49,7 +49,7 @@ public class HelloApplication extends Application {
 
             rootLayout = (BorderPane) loader.load();
 
-            scene = new Scene(rootLayout);
+            scene = new Scene(rootLayout, 600,600);
             mainStage.setScene(scene);
             mainStage.show();
 
@@ -67,7 +67,7 @@ public class HelloApplication extends Application {
             loader.setLocation(HelloApplication.class.getResource("hello-view.fxml")); //on charge la vue souhaitée
             AnchorPane view = (AnchorPane) loader.load();
 
-            this.mainStage.setTitle("Adeonas - Menu"); //on choisi le titre de la fenêtre
+            this.mainStage.setTitle("Adeonas - Connexion"); //on choisi le titre de la fenêtre
 
             //on charge le controlleur associé a la vue
             HelloController controller = loader.getController();
@@ -162,6 +162,7 @@ public class HelloApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("composition.fxml"));
             AnchorPane view = loader.load();
 
+            this.mainStage.setTitle("Adeonas - Ajouter un séjour");
             CompositionController controller = loader.getController();
             controller.setMainApp(this);
 
@@ -181,6 +182,7 @@ public class HelloApplication extends Application {
         FXMLLoader loader = new FXMLLoader(getClass().getResource("profilPage-view.fxml"));
         AnchorPane view = loader.load();
 
+        this.mainStage.setTitle("Adeonas - Votre profil");
         ProfilPageController controller = loader.getController();
         controller.setMainApp(this);
         controller.loadUserData(userID);
@@ -200,6 +202,7 @@ public class HelloApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("profilEditPage-view.fxml"));
             AnchorPane view = loader.load();
 
+            this.mainStage.setTitle("Adeonas - Modifiez votre profil");
             ProfilEditPageController controller = loader.getController();
             controller.loadUserData(userID);
             controller.setMainApp(this);
@@ -220,6 +223,7 @@ public class HelloApplication extends Application {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("hostPlanning.fxml"));
             AnchorPane view = loader.load();
 
+            this.mainStage.setTitle("Adeonas - Planning de réservation hôte");
             HostPlanningController controller = loader.getController();
             controller.setMainApp(this, hostID);
 
@@ -240,6 +244,7 @@ public class HelloApplication extends Application {
             loader.setLocation(HelloApplication.class.getResource("tripCompositionPage-view.fxml"));
             AnchorPane stayView = (AnchorPane) loader.load();
 
+            this.mainStage.setTitle("Adeonas - Composition de votre voyage");
             TripCompositionController controller = loader.getController();
             controller.setMainApp(this, userID);
 
