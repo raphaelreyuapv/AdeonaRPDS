@@ -179,6 +179,30 @@ public class SearchHelper {
         return null;
     }
 
+    public static List<Reservation> getHostReservationsList(int hostId){
+        Connection conn = null;
+        Statement statement = null;
+        List<Reservation> reservationList = new ArrayList<Reservation>();
+        String query = String.format("SELECT * FROM reservation WHERE host_id = %d", hostId);
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Reservation itm = new Reservation(rs);
+                reservationList.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+
+        if(reservationList.size() != 0) {
+            return reservationList;
+        }
+        return null;
+    }
+
     public static List<Sejour> getAllSejours(){
         Connection conn = null;
         Statement statement = null;
@@ -199,7 +223,43 @@ public class SearchHelper {
         return res;
     }
 
+    public static List<Sejour> getAllHostSejours(int hostId){
+        Connection conn = null;
+        Statement statement = null;
+        List<Sejour> res = new ArrayList<Sejour>();
+        String query = String.format("SELECT * FROM sejour WHERE id_host = %d", hostId);
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour itm = new Sejour(rs);
+                res.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        }
+        return res;
+    }
 
-
-
+    public static List<Sejour> getSejours(String search_param, int hostId){
+        Connection conn = null;
+        Statement statement = null;
+        List<Sejour> res = new ArrayList<Sejour>();
+        String query = String.format("SELECT * FROM sejour WHERE id_host = %d AND (titre LIKE '%s' OR lieu LIKE '%s' OR description LIKE '%s')", hostId, "%"+search_param+"%","%"+search_param+"%","%"+search_param+"%");
+        try {
+            conn = DriverManager.getConnection(url);
+            statement = conn.createStatement();
+            ResultSet rs = statement.executeQuery(query);
+            while(rs.next()){
+                Sejour itm = new Sejour(rs);
+                res.add(itm);
+            }
+        } catch (SQLException e) {
+            System.out.println(e.getMessage());
+            return null;
+        };
+        return res;
+    }
 }

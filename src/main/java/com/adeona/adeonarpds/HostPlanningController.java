@@ -4,14 +4,15 @@ import javafx.beans.property.ReadOnlyObjectWrapper;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.TableCell;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.layout.AnchorPane;
 
 import java.util.ArrayList;
 
-public class TripCompositionController {
-
+public class HostPlanningController {
     @FXML
     private TableView<TripCompositionRow> reservationTable;
 
@@ -25,6 +26,9 @@ public class TripCompositionController {
     private TableColumn<TripCompositionRow, String> end;
 
     @FXML
+    private TableColumn<TripCompositionRow, String> clientName;
+
+    @FXML
     private TableColumn<TripCompositionRow, TripCompositionRow> link;
 
     @FXML
@@ -34,23 +38,23 @@ public class TripCompositionController {
 
     private HelloApplication helloApplication;
 
-    private int userID;
+    private int hostID;
 
-    public void setMainApp(HelloApplication helloApplication, int userID)
+    public void setMainApp(HelloApplication helloApplication, int hostID)
     {
         this.helloApplication = helloApplication;
-        this.userID = userID;
+        this.hostID = hostID;
         display();
     }
 
     public void display()
     {
-        System.out.println("User ID : " +  userID);
-        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
+        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getHostReservationsList(0);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
         begin.setCellValueFactory(cellData -> cellData.getValue().dateBeginProperty());
         end.setCellValueFactory(cellData -> cellData.getValue().dateEndProperty());
+        clientName.setCellValueFactory(cellData -> cellData.getValue().clientNameProperty());
 
         delete.setCellValueFactory(
                 param -> new ReadOnlyObjectWrapper<>(param.getValue())
@@ -67,7 +71,7 @@ public class TripCompositionController {
                 System.out.println(r.toString());
                 delete.setCellFactory(param -> new TableCell<TripCompositionRow, TripCompositionRow>()
                 {
-                    private final Button deleteButton = new Button("Supprimer");
+                    private final Button deleteButton = new Button("Annuler");
 
                     @Override
                     protected void updateItem(TripCompositionRow c, boolean empty) {
@@ -105,20 +109,13 @@ public class TripCompositionController {
                 });
 
                 Sejour s = SearchHelper.getSejour(r.getId_sejour());
-                System.out.println("ID Sejour : " + r.getId_sejour());
-                if(s != null)
+                if(s != null && SearchHelper.getUser(r.getClient_id()).getName() != null)
                 {
-                    reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), ""));
+                    reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), SearchHelper.getUser(r.getClient_id()).getName()));
                     reservationTable.setItems(reservationsData);
                 }
-
             }
         }
-    }
-
-    @FXML
-    private void initialize() {
-
     }
 
     public void cancel(TripCompositionRow c)
@@ -133,8 +130,10 @@ public class TripCompositionController {
     }
 
     @FXML
-    private void backToMenu()
+    public void goToMenu()
     {
         this.helloApplication.displayMenu();
     }
+
+
 }

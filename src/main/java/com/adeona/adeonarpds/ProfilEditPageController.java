@@ -2,6 +2,7 @@ package com.adeona.adeonarpds;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -30,11 +31,21 @@ public class ProfilEditPageController {
     @FXML
     private TextArea userDescField;
 
+    @FXML
+    private CheckBox typeField;
     private boolean creation = true;
     private int userID = -1;
 
     @FXML
     AnchorPane currentWindow;
+
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
+
 
     public void loadUserData(int userID){
 
@@ -78,7 +89,10 @@ public class ProfilEditPageController {
             warningMessage.setVisible(true);
         }
         else{
-
+            int type=0;
+            if(typeField.isSelected()){
+                type=1;
+            }
             try {
                 Connection connection = DriverManager.getConnection("jdbc:sqlite:users.sqlite");
                 Statement statement;
@@ -97,7 +111,7 @@ public class ProfilEditPageController {
                     }
 
                     userID = nID+1;
-                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', 0 )";
+                    query = "INSERT INTO users VALUES ( "+ userID +", '"+ userPseudoField.getText()+ "' , '"+ userDescField.getText() +"', '"+ userIconField.getText() +"', "+type+")";
                 }
                 else{
 
@@ -111,12 +125,12 @@ public class ProfilEditPageController {
                 connection.close();
                 creation = true;
 
-
-                FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilPage-view.fxml"));
+                helloApplication.displayHostProfile(userID);
+                /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilPage-view.fxml"));
                 AnchorPane window = fxmlLoader.load();
                 currentWindow.getChildren().setAll(window);
                 ProfilPageController profilPageController = fxmlLoader.getController();
-                profilPageController.loadUserData(userID);
+                profilPageController.loadUserData(userID);*/
 
             }
             catch (Exception exception) {

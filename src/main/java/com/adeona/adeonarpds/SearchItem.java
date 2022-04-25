@@ -6,7 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import org.w3c.dom.events.MouseEvent;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 import java.io.InputStream;
 import java.net.URL;
@@ -14,15 +15,16 @@ import java.util.ResourceBundle;
 
 public class SearchItem implements Initializable {
 
-    Class<?> clazz = this.getClass();
+    private Class<?> clazz = this.getClass();
 
-    InputStream imageItem;
+    private InputStream imageItem;
 
-    int id;
-    String titleItem;
-    String locationItem;
-    String hostItem;
+    private int id;
+    private String titleItem;
+    private String locationItem;
+    private String hostItem;
 
+    private HelloApplication helloApplication;
 
     @FXML
     private Label title = null;
@@ -39,12 +41,17 @@ public class SearchItem implements Initializable {
     @FXML
     private ImageView urlProfile = null;
 
-    public SearchItem(int id, String title, String location, String host, String img) {
+    public SearchItem(int id, String title, String location, String host, String img, HelloApplication helloApplication) {
         this.id = id;
         this.titleItem = title;
         this.locationItem = location;
         this.hostItem = host;
         this.imageItem = clazz.getResourceAsStream(img);
+        this.helloApplication = helloApplication;
+
+        if (this.imageItem == null) {
+            this.imageItem = clazz.getResourceAsStream("default_img.png");
+        }
     }
 
     @Override
@@ -56,7 +63,7 @@ public class SearchItem implements Initializable {
         this.urlProfile.setImage(this.image);
     }
 
-    public int displayTravel(javafx.scene.input.MouseEvent mouseEvent) {
-        return this.id;
+    public void displayTravel(javafx.scene.input.MouseEvent mouseEvent) {
+        this.helloApplication.displayTripPage(this.id);
     }
 }

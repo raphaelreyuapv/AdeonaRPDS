@@ -23,14 +23,14 @@ public class ProfilPageController {
 
     private int userID;
 
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
+
     public void loadUserData(int userID){
-
-        /*
-            quand la scene ProfilPage est appelle, utiliser les deux lignes dessous.
-            ProfilPageController profilPageController = fxmlLoader.getController();
-            profilPageController.loadUserData(0);
-         */
-
 
         try {
 
@@ -59,20 +59,15 @@ public class ProfilPageController {
     }
 
     @FXML
-    protected void onEditButton() {
-        try {
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilEditPage-view.fxml"));
-            AnchorPane window = fxmlLoader.load();
-            currentWindow.getChildren().setAll(window);
-            ProfilEditPageController profilEditPageController = fxmlLoader.getController();
-            profilEditPageController.loadUserData(userID);
-
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }
+    public void onEditButton() {
+        this.helloApplication.displayHostProfileEdit(userID);
     }
+
+    public void backToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
+
+
 
 }
