@@ -32,6 +32,14 @@ public class SearchDisplay implements Initializable{
 
     private List<Sejour> sejoursToDisplay = null;
 
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
+
+
     Service<Void> service = new Service<Void>()
     {
         @Override
@@ -50,7 +58,7 @@ public class SearchDisplay implements Initializable{
                             String loc = sejoursToDisplay.get(i).getLieu();
                             String host = SearchHelper.getUser(sejoursToDisplay.get(i).getId_host()).getName();
                             String img = sejoursToDisplay.get(i).getURL_image();
-                            fxmlLoader.setControllerFactory(controllerClass -> new SearchItem(id, title, loc, host, img));
+                            fxmlLoader.setControllerFactory(controllerClass -> new SearchItem(id, title, loc, host, img, helloApplication));
                             nodes[i] = fxmlLoader.load();
                             final int index = i;
                             Platform.runLater(new Runnable() {

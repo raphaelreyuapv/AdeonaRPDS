@@ -30,8 +30,9 @@ public class HelloApplication extends Application {
         //displayResearchMenu();
         //displayTripPage(1);
         //displayTripComposition(0);
-        displayHostProfile(0);
-        displayTripCreationPage();
+        //displayHostProfile(0);
+        //displayTripCreationPage();
+        displaySearchMenu();
     }
 
     public void initRootLayout()
@@ -53,24 +54,28 @@ public class HelloApplication extends Application {
 
     }
 
-    public void displayResearchMenu()
+    public void displaySearchMenu()
     {
         try {
             //charger le fichier fxml associé
             FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(HelloApplication.class.getResource("")); //on charge la vue souhaitée
-            AnchorPane menuOverview = (AnchorPane) loader.load();
+            loader.setLocation(HelloApplication.class.getResource("search_display.fxml")); //on charge la vue souhaitée
+            AnchorPane view = (AnchorPane) loader.load();
 
 
             this.mainStage.setTitle("Adeonas - Menu"); //on choisi le titre de la fenêtre
 
             //on charge le controlleur associé a la vue
-            //MenuController controller = loader.getController();
-            //controller.setMainApp(this);
+            SearchDisplay controller = loader.getController();
+            controller.setMainApp(this);
+            view.setPrefWidth(700);
+            view.setPrefHeight(500);
+            mainStage.setWidth(700);
+            mainStage.setHeight(500);
 
             //on met la vue au centre de la scene
 
-            rootLayout.setCenter(menuOverview);
+            rootLayout.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();
         }
