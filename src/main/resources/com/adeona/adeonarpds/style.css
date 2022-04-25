@@ -1,0 +1,14 @@
+.text {
+    -fx-text-fill: #cc6c00;
+    -fx-underline: none;
+}
+
+.btn {
+    -fx-background-color:transparent;
+    -fx-border-color:transparent transparent rgba(204, 108, 0, 0.4) transparent;
+    -fx-border-radius:3px;
+}
+.btn:hover {
+    -fx-background-color:#eeee;
+    -fx-border-color: transparent transparent #cc6c00 transparent;
+}

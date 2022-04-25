@@ -1,41 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.HelloController">
+<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.HelloController">
    <children>
-      <Button fx:id="register" layoutX="214.0" layoutY="504.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="172.0" text="Créer un compte">
+      <Button fx:id="register" layoutX="356.0" layoutY="465.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="172.0" styleClass="btn" text="Créer un compte">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
-       <Button fx:id="login" layoutX="232.0" layoutY="422.0" onAction="#onLoginButtonClick" prefHeight="34.0" prefWidth="138.0" text="Se connecter">
+       <Button fx:id="login" layoutX="109.0" layoutY="465.0" onAction="#onLoginButtonClick" prefHeight="34.0" prefWidth="138.0" styleClass="btn" text="Se connecter">
          <font>
             <Font size="16.0" />
          </font>
       </Button>
       <TextField fx:id="password" layoutX="170.0" layoutY="343.0" prefHeight="34.0" prefWidth="261.0" />
-      <Label layoutX="242.0" layoutY="309.0" text="Mot de passe" underline="true">
+      <Label layoutX="242.0" layoutY="309.0" styleClass="text" text="Mot de passe" underline="true">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
       <TextField fx:id="username" layoutX="170.0" layoutY="255.0" prefHeight="34.0" prefWidth="261.0" />
-      <Label layoutX="252.0" layoutY="223.0" text="Identifiant" underline="true">
+      <Label layoutX="252.0" layoutY="223.0" styleClass="text" stylesheets="@style.css" text="Identifiant" textAlignment="CENTER">
          <font>
             <Font size="19.0" />
          </font>
       </Label>
-      <Text layoutX="191.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Adeonas" underline="true" wrappingWidth="240.20751953125">
+      <Label layoutX="203.0" layoutY="79.0" styleClass="text" text="Adeonas" textAlignment="CENTER">
          <font>
             <Font size="51.0" />
          </font>
-      </Text>
+      </Label>
    </children>
 </AnchorPane>
