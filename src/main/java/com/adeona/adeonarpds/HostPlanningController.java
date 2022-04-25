@@ -101,7 +101,7 @@ public class HostPlanningController {
                 });
 
                 Sejour s = SearchHelper.getSejour(r.getId_sejour());
-                if(s != null)
+                if(s != null && SearchHelper.getUser(r.getClient_id()).getName() != null)
                 {
                     reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), SearchHelper.getUser(r.getClient_id()).getName()));
                     reservationTable.setItems(reservationsData);
@@ -122,7 +122,7 @@ public class HostPlanningController {
 
     public void goToTrip(TripCompositionRow c)
     {
-
+        //to be implemented with the navigation
     }
 
 
