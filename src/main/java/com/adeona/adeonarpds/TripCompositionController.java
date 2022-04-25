@@ -32,12 +32,21 @@ public class TripCompositionController {
 
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
-    @FXML
-    AnchorPane currentWindow;
+    private HelloApplication helloApplication;
 
-    @FXML
-    private void initialize() {
-        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(0);
+    private int userID;
+
+    public void setMainApp(HelloApplication helloApplication, int userID)
+    {
+        this.helloApplication = helloApplication;
+        this.userID = userID;
+        display();
+    }
+
+    public void display()
+    {
+        System.out.println("User ID : " +  userID);
+        ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
         begin.setCellValueFactory(cellData -> cellData.getValue().dateBeginProperty());
@@ -96,17 +105,20 @@ public class TripCompositionController {
                 });
 
                 Sejour s = SearchHelper.getSejour(r.getId_sejour());
+                System.out.println("ID Sejour : " + r.getId_sejour());
                 if(s != null)
                 {
                     reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), ""));
                     reservationTable.setItems(reservationsData);
                 }
-                else
-                {
-                    System.out.println("null");
-                }
+
             }
         }
+    }
+
+    @FXML
+    private void initialize() {
+
     }
 
     public void cancel(TripCompositionRow c)
@@ -117,19 +129,12 @@ public class TripCompositionController {
 
     public void goToTrip(TripCompositionRow c)
     {
-        //Pour aller vers le voyage en question, à améliorer avec la navigation.
-        /*try {
+        this.helloApplication.displayTripPage(c.getTripId());
+    }
 
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("stay-details.fxml"));
-            ScrollPane window = fxmlLoader.load();
-            currentWindow.getChildren().setAll(window);
-            TripDetailsController tripDetailsController = fxmlLoader.getController();
-            tripDetailsController.setTripId(c.getTripId());
-
-
-        } catch (
-                IOException e) {
-            e.printStackTrace();
-        }*/
+    @FXML
+    private void backToMenu()
+    {
+        this.helloApplication.displayMenu();
     }
 }

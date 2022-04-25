@@ -37,6 +37,12 @@ public class CompositionController {
     @FXML
     private DatePicker date_fin;
 
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
 
     @FXML
     private void initialize(){
@@ -75,5 +81,11 @@ public class CompositionController {
         );
         SearchHelper.addSejour(s,0);
 
+    }
+
+    @FXML
+    public void returnToMenu()
+    {
+        this.helloApplication.displayMenu();
     }
 }
