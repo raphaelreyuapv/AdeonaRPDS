@@ -21,11 +21,14 @@ public class ConversationController {
     }
     @FXML
     private void initialize(){
+        setUser_home(Session.name_logged);
+        chatbox.setText(Session.chat_history);
         chatinput.setOnKeyPressed(new EventHandler<KeyEvent>() {
             @Override
             public void handle(KeyEvent event) {
                 if(event.getCode() == KeyCode.ENTER)
                 send();
+                Session.setChatHistory(chatbox.getText());
             }
         });
     }
