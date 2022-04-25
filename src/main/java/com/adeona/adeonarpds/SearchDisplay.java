@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.concurrent.Task;
 
 import java.io.IOException;
+import java.io.PrintStream;
 import java.net.URL;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -71,13 +72,27 @@ public class SearchDisplay implements Initializable{
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        this.sejoursToDisplay = SearchHelper.getAllSejours();
+        if (Session.type_logged == 1) {
+            this.sejoursToDisplay = SearchHelper.getAllHostSejours(Session.id_logged);
+        }
+        else {
+            this.sejoursToDisplay = SearchHelper.getAllSejours();
+        }
+
+        for (Sejour sejour : sejoursToDisplay) {
+            System.out.println(sejour.getURL_image());
+        }
         service.start();
     }
 
     public void search(KeyEvent event) {
         if(searchBar.getText().length() >= 2) {
-            sejoursToDisplay = SearchHelper.getSejours(searchBar.getText());
+            if (Session.type_logged == 1) {
+                sejoursToDisplay = SearchHelper.getSejours(searchBar.getText(), Session.id_logged);
+            }
+            else {
+                sejoursToDisplay = SearchHelper.getSejours(searchBar.getText());
+            }
             itemHolder.getChildren().clear();
             service.restart();
         }
