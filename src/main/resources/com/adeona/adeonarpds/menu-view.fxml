@@ -41,7 +41,7 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <Button fx:id="tripCompoButton" layoutX="374.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#voyageComposition" prefHeight="63.0" prefWidth="251.0" text="Ma composition de séjours">
+      <Button layoutX="374.0" layoutY="319.0" mnemonicParsing="false" onMouseClicked="#voyageComposition" prefHeight="63.0" prefWidth="251.0" text="Ma composition de séjours">
          <font>
             <Font size="16.0" />
          </font>

@@ -32,6 +32,8 @@ public class TripCompositionController {
 
     private ObservableList<TripCompositionRow> reservationsData = FXCollections.observableArrayList();
 
+
+
     private HelloApplication helloApplication;
 
     private int userID;
@@ -45,7 +47,6 @@ public class TripCompositionController {
 
     public void display()
     {
-        System.out.println("User ID : " +  userID);
         ArrayList<Reservation> reserv = (ArrayList<Reservation>) SearchHelper.getClientReservations(userID);
 
         title.setCellValueFactory(cellData -> cellData.getValue().tripNameProperty());
@@ -105,13 +106,15 @@ public class TripCompositionController {
                 });
 
                 Sejour s = SearchHelper.getSejour(r.getId_sejour());
-                System.out.println("ID Sejour : " + r.getId_sejour());
                 if(s != null)
                 {
                     reservationsData.add(new TripCompositionRow(s.getTitre(), r.getDate_debut(), r.getDate_fin(), s.getId(), ""));
                     reservationTable.setItems(reservationsData);
                 }
-
+                else
+                {
+                    System.out.println("null");
+                }
             }
         }
     }

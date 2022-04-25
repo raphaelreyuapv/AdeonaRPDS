@@ -22,10 +22,7 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button fx:id="editButton" layoutX="367.0" layoutY="606.0" mnemonicParsing="false" onMouseClicked="#onEditButton" prefHeight="42.0" prefWidth="206.0" text="Editer le profil">
-         <font>
-            <Font size="17.0" />
-         </font></Button>
+      <Button fx:id="editButton" layoutX="713.0" layoutY="140.0" mnemonicParsing="false" onMouseClicked="#onEditButton" text="Editer le profil" />
       <Text fx:id="userEmailAdress" layoutX="225.0" layoutY="167.0" strokeType="OUTSIDE" strokeWidth="0.0" text="adresse@mail.com">
          <font>
             <Font size="16.0" />
@@ -63,10 +60,5 @@
             <Font size="16.0" />
          </font>
       </Text>
-      <Button layoutX="51.0" layoutY="36.0" mnemonicParsing="false" onMouseClicked="#backToMenu" text="Retour menu">
-         <font>
-            <Font size="17.0" />
-         </font>
-      </Button>
    </children>
 </AnchorPane>
