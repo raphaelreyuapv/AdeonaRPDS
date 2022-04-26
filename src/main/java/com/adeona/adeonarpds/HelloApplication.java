@@ -235,8 +235,8 @@ public class HelloApplication extends Application {
             TripCompositionController controller = loader.getController();
             controller.setMainApp(this, userID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(800);
+            mainStage.setWidth(900);
+            mainStage.setHeight(700);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
             e.printStackTrace();
