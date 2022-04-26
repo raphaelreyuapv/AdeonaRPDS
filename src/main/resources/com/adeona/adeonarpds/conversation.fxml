@@ -2,12 +2,21 @@
 
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-
-<AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
+<AnchorPane prefHeight="219.0" prefWidth="610.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
    <children>
-      <Button mnemonicParsing="false" onAction="#backToMenu" text="Back" />
-      <TextArea fx:id="chatbox" editable="false" prefHeight="180.0" prefWidth="600.0" text="Discussion" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
-      <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
+      <TextArea fx:id="chatbox" editable="false" prefHeight="180.0" prefWidth="600.0" promptText="Discussion" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextArea>
+      <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" promptText="Appuyez sur Entrée pour envoyer le message" styleClass="conv" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0">
+         <font>
+            <Font size="14.0" />
+         </font></TextField>
+      <Button layoutX="495.0" layoutY="5.0" mnemonicParsing="false" onAction="#backToMenu" styleClass="btn-conv" text="Retour Profil" textFill="#767676" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
    </children>
 </AnchorPane>

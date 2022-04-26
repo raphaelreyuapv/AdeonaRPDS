@@ -249,11 +249,11 @@ public class HelloApplication extends Application {
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(HelloApplication.class.getResource("conversation.fxml"));
-            VBox stayView = loader.load();
+            AnchorPane stayView = loader.load();
             ConversationController controller = loader.getController();
             controller.setMainApp(this);
 
-            mainStage.setWidth(600);
+            mainStage.setWidth(700);
             mainStage.setHeight(300);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
