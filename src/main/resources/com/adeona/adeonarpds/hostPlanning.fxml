@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="900.0" prefWidth="1000.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.HostPlanningController">
+
+    <children>
+        <TableView fx:id="reservationTable" layoutX="19.0" layoutY="196.0" prefHeight="400.0" prefWidth="963.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
+            <columns>
+                <TableColumn fx:id="title" editable="false" prefWidth="216.0" resizable="false" text="Titre Séjour" />
+            <TableColumn fx:id="clientName" prefWidth="149.0" text="Client" />
+                <TableColumn fx:id="begin" editable="false" prefWidth="167.0" resizable="false" text="Date de début" />
+                <TableColumn fx:id="end" editable="false" prefWidth="176.0" resizable="false" text="Date de fin" />
+                <TableColumn fx:id="link" editable="false" prefWidth="111.0" resizable="false" text="Voir le voyage" />
+                <TableColumn fx:id="delete" editable="false" prefWidth="143.0" resizable="false" text="Action" />
+            </columns>
+        </TableView>
+      <Button layoutX="35.0" layoutY="28.0" mnemonicParsing="false" onMouseClicked="#goToMenu" prefHeight="41.0" prefWidth="129.0" styleClass="btn" text="Menu">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Label layoutX="332.0" layoutY="101.0" styleClass="text" text="Planning des réservations">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Label>
+    </children>
+
+</AnchorPane>

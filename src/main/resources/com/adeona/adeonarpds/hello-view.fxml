@@ -1,16 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<?import javafx.scene.control.Button?>
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
-      fx:controller="com.adeona.adeonarpds.HelloController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
-
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
-</VBox>
+<AnchorPane minHeight="600.0" minWidth="600.0" prefHeight="600.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.HelloController">
+   <children>
+      <Button fx:id="register" layoutX="356.0" layoutY="465.0" mnemonicParsing="false" prefHeight="34.0" prefWidth="172.0" styleClass="btn" text="Créer un compte">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+       <Button fx:id="login" layoutX="109.0" layoutY="465.0" onAction="#onLoginButtonClick" prefHeight="34.0" prefWidth="138.0" styleClass="btn" text="Se connecter">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <TextField fx:id="password" layoutX="170.0" layoutY="343.0" prefHeight="34.0" prefWidth="261.0" />
+      <Label layoutX="242.0" layoutY="309.0" styleClass="text" text="Mot de passe" underline="true">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <TextField fx:id="username" layoutX="170.0" layoutY="255.0" prefHeight="34.0" prefWidth="261.0" />
+      <Label layoutX="252.0" layoutY="223.0" styleClass="text" stylesheets="@style.css" text="Identifiant" textAlignment="CENTER">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="203.0" layoutY="79.0" styleClass="text" text="Adeonas" textAlignment="CENTER">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

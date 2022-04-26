@@ -1,0 +1,23 @@
+.text {
+    -fx-text-fill: #cc6c00;
+    -fx-underline: none;
+}
+
+.btn {
+    -fx-background-color:transparent;
+    -fx-border-color:transparent transparent rgba(204, 108, 0, 0.4) transparent;
+    -fx-border-radius:3px;
+}
+.btn:hover {
+    -fx-background-color:#eeee;
+    -fx-border-color: transparent transparent #cc6c00 transparent;
+}
+.btn-conv {
+     -fx-background-color:transparent;
+     -fx-border-color: transparent transparent rgba(118, 118, 118, 0.4) transparent;
+     -fx-border-radius:3px;
+}
+.btn-conv:hover {
+      -fx-background-color:#eeee;
+      -fx-border-color: rgba(118, 118, 118, 0.4) rgba(118, 118, 118, 0.4) #767676  rgba(118, 118, 118, 0.4);
+}

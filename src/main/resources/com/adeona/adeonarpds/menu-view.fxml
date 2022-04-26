@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<AnchorPane prefHeight="700.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.MenuController">
+   <children>
+      <Label layoutX="310.0" layoutY="67.0" styleClass="text" text="Menu" textAlignment="CENTER">
+         <font>
+            <Font size="51.0" />
+         </font>
+      </Label>
+      <Button fx:id="searchButton" layoutX="249.0" layoutY="368.0" mnemonicParsing="false" onMouseClicked="#search" prefHeight="49.0" prefWidth="251.0" styleClass="btn" text="Rechercher un séjour">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <Button fx:id="tripCompoButton" layoutX="249.0" layoutY="459.0" mnemonicParsing="false" onMouseClicked="#voyageComposition" prefHeight="63.0" prefWidth="251.0" styleClass="btn" text="Ma composition de séjours">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Button>
+      <AnchorPane fx:id="hostPane" layoutX="112.0" layoutY="491.0" prefHeight="87.0" prefWidth="526.0">
+         <children>
+            <Button layoutY="77.0" mnemonicParsing="false" onMouseClicked="#createTrip" prefHeight="63.0" prefWidth="175.0" styleClass="btn" text="Créer un séjour">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+            <Button layoutX="343.0" layoutY="77.0" mnemonicParsing="false" onMouseClicked="#hostReservation" prefHeight="63.0" prefWidth="175.0" styleClass="btn" text="Réservations">
+               <font>
+                  <Font size="16.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+      <Button contentDisplay="TOP" layoutX="294.0" layoutY="175.0" mnemonicParsing="false" onMouseClicked="#profile" prefHeight="63.0" prefWidth="161.0" styleClass="btn" text="Mon profil">
+         <font>
+            <Font size="16.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="131.0" fitWidth="102.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+   </children>
+</AnchorPane>
