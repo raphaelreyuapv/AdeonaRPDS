@@ -27,7 +27,7 @@ public class MenuController {
         hostPane.setVisible(false);
         if (Session.type_logged == 1) {
             hostPane.setVisible(true);
-            this.searchButton.setText("Proposition de séjour");
+            this.searchButton.setText("Séjours que je propose");
             this.tripCompoButton.setVisible(false);
 
         }
