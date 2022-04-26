@@ -58,7 +58,7 @@ public class ProfilEditPageController {
             resultSet = statement.executeQuery("select name,desc,imageURL from users where id="+userID);
             creation = false;
             this.userID = userID;
-
+            typeField.setVisible(false);
             while (resultSet.next()) {
 
                 userPseudoField.setText(resultSet.getString("name"));
@@ -126,11 +126,7 @@ public class ProfilEditPageController {
                 creation = true;
 
                 helloApplication.displayHostProfile(userID);
-                /*FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("profilPage-view.fxml"));
-                AnchorPane window = fxmlLoader.load();
-                currentWindow.getChildren().setAll(window);
-                ProfilPageController profilPageController = fxmlLoader.getController();
-                profilPageController.loadUserData(userID);*/
+
 
             }
             catch (Exception exception) {

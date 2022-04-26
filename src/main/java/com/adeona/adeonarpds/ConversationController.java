@@ -15,6 +15,16 @@ public class ConversationController {
     private TextField chatinput;
 
     private String user_home;
+    private HelloApplication helloApplication;
+
+    public void setMainApp(HelloApplication helloApplication)
+    {
+        this.helloApplication = helloApplication;
+    }
+    public void backToMenu()
+    {
+        this.helloApplication.displayMenu();
+    }
     public void send(){
         chatbox.appendText("\n"+Session.name_logged+":"+chatinput.getText());
         chatinput.setText("");

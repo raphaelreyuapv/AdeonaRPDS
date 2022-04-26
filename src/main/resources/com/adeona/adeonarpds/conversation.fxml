@@ -6,6 +6,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.ConversationController">
    <children>
+      <Button mnemonicParsing="false" onAction="#backToMenu" text="Back" />
       <TextArea fx:id="chatbox" editable="false" prefHeight="180.0" prefWidth="600.0" text="Discussion" AnchorPane.bottomAnchor="35.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" AnchorPane.topAnchor="5.0" />
       <TextField fx:id="chatinput" prefHeight="9.0" prefWidth="600.0" AnchorPane.bottomAnchor="5.0" AnchorPane.leftAnchor="5.0" AnchorPane.rightAnchor="5.0" />
    </children>

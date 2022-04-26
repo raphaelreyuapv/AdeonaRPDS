@@ -68,6 +68,6 @@ public class ProfilPageController {
         this.helloApplication.displayMenu();
     }
 
-
+    public void openConv(){ this.helloApplication.displayConversation();}
 
 }

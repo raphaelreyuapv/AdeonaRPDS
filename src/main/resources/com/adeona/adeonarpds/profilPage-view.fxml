@@ -31,7 +31,7 @@
          <children>
             <HBox prefHeight="22.0" prefWidth="304.0">
                <children>
-                  <ImageView fx:id="hostIcon" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="hostIcon" fitHeight="50.0" fitWidth="50.0" onMouseClicked="#openConv" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@user.png" />
                      </image>
