@@ -214,8 +214,8 @@ public class HelloApplication extends Application {
             HostPlanningController controller = loader.getController();
             controller.setMainApp(this, hostID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(900);
+            mainStage.setWidth(1020);
+            mainStage.setHeight(700);
             rootLayout.setCenter(view);
 
         } catch (IOException e) {
