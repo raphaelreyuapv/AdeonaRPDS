@@ -85,9 +85,9 @@ public class HelloApplication extends Application {
             //on charge le controlleur associé a la vue
             MenuController controller = loader.getController();
             controller.setMainApp(this);
-            view.setPrefWidth(1000);
+            view.setPrefWidth(750);
             view.setPrefHeight(700);
-            mainStage.setWidth(1000);
+            mainStage.setWidth(750);
             mainStage.setHeight(700);
 
             //on met la vue au centre de la scene
@@ -113,9 +113,9 @@ public class HelloApplication extends Application {
             SearchDisplay controller = loader.getController();
             controller.setMainApp(this);
             view.setPrefWidth(700);
-            view.setPrefHeight(500);
+            view.setPrefHeight(630);
             mainStage.setWidth(700);
-            mainStage.setHeight(500);
+            mainStage.setHeight(630);
 
             //on met la vue au centre de la scene
 
@@ -134,8 +134,8 @@ public class HelloApplication extends Application {
             TripDetailsController controller = loader.getController();
             controller.setMainApp(this, tripID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(900);
+            mainStage.setWidth(920);
+            mainStage.setHeight(600);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
             e.printStackTrace();
@@ -153,8 +153,8 @@ public class HelloApplication extends Application {
             CompositionController controller = loader.getController();
             controller.setMainApp(this);
 
-            mainStage.setWidth(800);
-            mainStage.setHeight(850);
+            mainStage.setWidth(740);
+            mainStage.setHeight(600);
             rootLayout.setCenter(view);
         } catch (IOException e) {
             e.printStackTrace();
@@ -194,8 +194,8 @@ public class HelloApplication extends Application {
             controller.loadUserData(userID);
             controller.setMainApp(this);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(681);
+            mainStage.setWidth(490);
+            mainStage.setHeight(650);
             rootLayout.setCenter(view);
 
         } catch (IOException e) {
@@ -214,8 +214,8 @@ public class HelloApplication extends Application {
             HostPlanningController controller = loader.getController();
             controller.setMainApp(this, hostID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(900);
+            mainStage.setWidth(1020);
+            mainStage.setHeight(700);
             rootLayout.setCenter(view);
 
         } catch (IOException e) {
@@ -235,8 +235,8 @@ public class HelloApplication extends Application {
             TripCompositionController controller = loader.getController();
             controller.setMainApp(this, userID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(800);
+            mainStage.setWidth(900);
+            mainStage.setHeight(700);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
             e.printStackTrace();
@@ -249,11 +249,11 @@ public class HelloApplication extends Application {
         {
             FXMLLoader loader = new FXMLLoader();
             loader.setLocation(HelloApplication.class.getResource("conversation.fxml"));
-            VBox stayView = loader.load();
+            AnchorPane stayView = loader.load();
             ConversationController controller = loader.getController();
             controller.setMainApp(this);
 
-            mainStage.setWidth(600);
+            mainStage.setWidth(700);
             mainStage.setHeight(300);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {

@@ -5,6 +5,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
@@ -139,4 +140,12 @@ public class ProfilEditPageController {
     }
 
 
+    public void onEditCancel(MouseEvent mouseEvent) {
+        try {
+            helloApplication.displayHostProfile(userID);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
 }

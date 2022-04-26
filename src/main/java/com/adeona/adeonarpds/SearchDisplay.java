@@ -13,6 +13,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TextField;
 import javafx.scene.input.InputMethodEvent;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.concurrent.Task;
@@ -104,5 +105,9 @@ public class SearchDisplay implements Initializable{
             itemHolder.getChildren().clear();
             service.restart();
         }
+    }
+
+    public void backToMenu(MouseEvent mouseEvent) {
+        this.helloApplication.displayMenu();
     }
 }
