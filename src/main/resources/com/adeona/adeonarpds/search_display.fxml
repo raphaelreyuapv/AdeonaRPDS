@@ -1,23 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ScrollPane?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="500.0" prefWidth="700.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.SearchDisplay">
+<AnchorPane prefHeight="600.0" prefWidth="700.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.SearchDisplay">
    <children>
-      <Pane prefHeight="70.0" prefWidth="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <Button layoutX="23.0" layoutY="27.0" mnemonicParsing="false" onMouseClicked="#backToMenu" styleClass="btn" text="Retour menu">
+         <font>
+            <Font size="16.0" />
+         </font></Button>
+      <Pane layoutY="108.0" prefHeight="70.0" prefWidth="602.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField fx:id="searchBar" layoutX="174.0" layoutY="23.0" onKeyTyped="#search" prefHeight="25.0" prefWidth="483.0" />
-            <Label layoutX="41.0" layoutY="27.0" prefHeight="17.0" prefWidth="62.0" text="Search" />
+            <TextField fx:id="searchBar" layoutX="166.0" layoutY="19.0" onKeyTyped="#search" prefHeight="25.0" prefWidth="483.0">
+               <font>
+                  <Font size="16.0" />
+               </font></TextField>
+            <Label alignment="CENTER_RIGHT" layoutX="37.0" layoutY="25.0" prefHeight="25.0" prefWidth="116.0" text="Rechercher">
+               <font>
+                  <Font size="16.0" />
+               </font></Label>
          </children></Pane>
-      <ScrollPane layoutY="70.0" prefHeight="380.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="69.60000000000002">
+      <ScrollPane layoutY="70.0" prefHeight="380.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <content>
-            <VBox fx:id="itemHolder" prefHeight="377.0" prefWidth="697.0" />
+            <VBox fx:id="itemHolder" prefHeight="377.0" prefWidth="698.0" />
          </content>
       </ScrollPane>
+      <Label layoutX="292.0" layoutY="38.0" styleClass="text" text="Séjours">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

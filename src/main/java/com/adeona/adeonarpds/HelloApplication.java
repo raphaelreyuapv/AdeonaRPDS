@@ -113,9 +113,9 @@ public class HelloApplication extends Application {
             SearchDisplay controller = loader.getController();
             controller.setMainApp(this);
             view.setPrefWidth(700);
-            view.setPrefHeight(500);
+            view.setPrefHeight(630);
             mainStage.setWidth(700);
-            mainStage.setHeight(500);
+            mainStage.setHeight(630);
 
             //on met la vue au centre de la scene
 
