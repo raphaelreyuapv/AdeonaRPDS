@@ -194,8 +194,8 @@ public class HelloApplication extends Application {
             controller.loadUserData(userID);
             controller.setMainApp(this);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(681);
+            mainStage.setWidth(490);
+            mainStage.setHeight(650);
             rootLayout.setCenter(view);
 
         } catch (IOException e) {
