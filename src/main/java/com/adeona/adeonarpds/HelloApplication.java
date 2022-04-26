@@ -134,8 +134,8 @@ public class HelloApplication extends Application {
             TripDetailsController controller = loader.getController();
             controller.setMainApp(this, tripID);
 
-            mainStage.setWidth(1000);
-            mainStage.setHeight(900);
+            mainStage.setWidth(920);
+            mainStage.setHeight(600);
             rootLayout.setCenter(stayView);
         } catch (IOException e) {
             e.printStackTrace();

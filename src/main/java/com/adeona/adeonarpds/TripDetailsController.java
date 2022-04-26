@@ -121,7 +121,7 @@ public class TripDetailsController {
             System.out.println(sej.toString());
             place.setText(sej.getLieu());
             System.out.println(sej.getId_host());
-            User u = SearchHelper.getUser(sej.getId());
+            User u = SearchHelper.getUser(sej.getId_host());
             if(u != null) {
                 host.setText(u.getName());
             }
@@ -166,14 +166,18 @@ public class TripDetailsController {
             this.tv.setDisable(true);
             this.washer.setSelected(sej.isLave_linge());
             this.washer.setDisable(true);
-
-            if(sej.getURL_image() != null && sej.getURL_image().equals(""))
-            {
-                String[] imgList = sej.getURL_image().split(";");
-                for (int i = 0; i < imgList.length; i++) {
-                    this.imgLayout.get(i).setImage(new Image(imgList[i]));
-                }
+            String image = sej.getURL_image();
+            if (this.getClass().getResourceAsStream(image) != null) {
+                this.img2.setImage(new Image(this.getClass().getResourceAsStream(image)));
             }
+
+//            if(sej.getURL_image() != null && sej.getURL_image().equals(""))
+//            {
+//                String[] imgList = sej.getURL_image().split(";");
+//                for (int i = 0; i < imgList.length; i++) {
+//                    this.imgLayout.get(i).setImage(new Image(imgList[i]));
+//                }
+//            }
         }
     }
 
