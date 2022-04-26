@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane onMouseClicked="#voyageComposition" prefHeight="700.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.MenuController">
+<AnchorPane prefHeight="700.0" prefWidth="750.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.adeona.adeonarpds.MenuController">
    <children>
       <Label layoutX="310.0" layoutY="67.0" styleClass="text" text="Menu" textAlignment="CENTER">
          <font>
