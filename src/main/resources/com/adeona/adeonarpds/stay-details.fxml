@@ -105,7 +105,7 @@
                   <Font size="23.0" />
                </font>
             </Text>
-            <Button layoutX="349.0" layoutY="889.0" mnemonicParsing="false" onMouseClicked="#displayReservation" styleClass="btn" text="Contacter l'hôte">
+            <Button fx:id="contactButton" layoutX="349.0" layoutY="889.0" mnemonicParsing="false" onMouseClicked="#displayReservation" styleClass="btn" text="Contacter l'hôte">
                <font>
                   <Font size="21.0" />
                </font>

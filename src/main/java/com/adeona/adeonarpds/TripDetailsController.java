@@ -83,11 +83,12 @@ public class TripDetailsController {
     @FXML
     private DatePicker datePickerEnd;
 
+    @FXML
+    private Button contactButton = new Button();
+
     private Sejour sej;
 
     private HelloApplication helloApplication;
-
-    private Button contactButton;
 
     public void setTripId(int tripId)
     {
@@ -110,7 +111,7 @@ public class TripDetailsController {
 
         if(Session.type_logged == 1)
         {
-            contactButton.setText("Editer le séjour");
+            this.contactButton.setText("Editer le séjour");
         }
 
         sej = SearchHelper.getSejour(tripId);
